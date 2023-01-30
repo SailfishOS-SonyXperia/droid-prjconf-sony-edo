@@ -1,0 +1,15 @@
+#!/usr/bin/rpm
+# -*- rpm -*-
+
+# device-specific project conf:
+Prefer: droid-hal-pdx203-devel
+Prefer: ohm-configs-default
+
+# droid-hal has Requires(post): droid-config-flashing which is not really needed at build time
+# this is the only way to kludge it away
+
+Substitute: droid-config-flashing bash
+
+Substitute: ubu-trusty ubu-chroot
+
+%define supported_devices "xqat51 xqat52 xqas52"
